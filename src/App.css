@@ -284,3 +284,32 @@ form button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Final UI polish */
+
+.search-box:focus,
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.task-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.task-actions button:hover,
+.edit-area button:hover,
+.sort-button:hover,
+.clear-button:hover {
+  transform: translateY(-1px);
+}
+
+.clear-button:hover {
+  background: #f3f3f3;
+}
