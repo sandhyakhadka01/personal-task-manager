@@ -263,3 +263,16 @@ form button {
   cursor: pointer;
   font-size: 14px;
 }
+
+.task-stats {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.task-stats span {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f1f1f1;
+}

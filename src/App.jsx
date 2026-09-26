@@ -58,7 +58,11 @@ const [tasks, setTasks] = useState(() => {
     );
   }
 
-const visibleTasks = tasks
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
+  const pendingTasks = totalTasks - completedTasks;
+
+  const visibleTasks = tasks
   .filter((task) => {
     const matchesFilter =
       filter === "All" ||
@@ -96,6 +100,13 @@ const visibleTasks = tasks
         filter={filter}
         onFilterChange={setFilter}
       />
+
+      <div className="task-stats">
+        <span>Total: {totalTasks}</span>
+        <span>Completed: {completedTasks}</span>
+        <span>Pending: {pendingTasks}</span>
+      </div>
+      
       <input
        className="search-box"
        type="text"
