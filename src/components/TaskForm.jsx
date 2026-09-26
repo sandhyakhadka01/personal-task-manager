@@ -3,30 +3,37 @@ import { useState } from "react";
 function TaskForm({ onAddTask }) {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("College");
+  const [date, setDate] = useState("");
+  const [timeOfDay, setTimeOfDay] = useState("Morning");
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (!title.trim()) return;
+    if (!title.trim() || !date) return;
 
-    onAddTask({
+    const newTask = {
       id: Date.now(),
       title: title.trim(),
       category,
+      date,
+      timeOfDay,
       completed: false,
-    });
+    };
+
+    onAddTask(newTask);
 
     setTitle("");
-    setCategory("College");
+    setDate("");
+    setTimeOfDay("Morning");
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        placeholder="Enter a task"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
-        placeholder="Enter a task"
       />
 
       <select
@@ -37,6 +44,21 @@ function TaskForm({ onAddTask }) {
         <option>Personal</option>
         <option>Work</option>
         <option>Urgent</option>
+      </select>
+
+      <input
+        type="date"
+        value={date}
+        onChange={(event) => setDate(event.target.value)}
+      />
+
+      <select
+        value={timeOfDay}
+        onChange={(event) => setTimeOfDay(event.target.value)}
+      >
+        <option>Morning</option>
+        <option>Evening</option>
+        <option>Night</option>
       </select>
 
       <button type="submit">Add Task</button>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./App.css";
 
 import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
@@ -56,7 +57,7 @@ const [tasks, setTasks] = useState(() => {
   });
 
   return (
-    <div>
+    <div className="app">
       <Header />
 
       <TaskForm onAddTask={addTask} />

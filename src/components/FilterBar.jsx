@@ -1,6 +1,6 @@
 function FilterBar({ filter, onFilterChange }) {
   return (
-    <div>
+    <div className="filter-bar">
       <button onClick={() => onFilterChange("All")}>
         All
       </button>
