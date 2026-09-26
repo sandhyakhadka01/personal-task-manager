@@ -229,3 +229,13 @@ form button {
 .priority-low {
   font-weight: 600;
 }
+
+.search-box {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}

@@ -12,6 +12,7 @@ const [tasks, setTasks] = useState(() => {
   return savedTasks ? JSON.parse(savedTasks) : [];
 });
   const [filter, setFilter] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
   localStorage.setItem(
@@ -50,11 +51,18 @@ const [tasks, setTasks] = useState(() => {
     );
   }
 
-  const visibleTasks = tasks.filter((task) => {
-    if (filter === "Active") return !task.completed;
-    if (filter === "Completed") return task.completed;
-    return true;
-  });
+const visibleTasks = tasks.filter((task) => {
+  const matchesFilter =
+    filter === "All" ||
+    (filter === "Active" && !task.completed) ||
+    (filter === "Completed" && task.completed);
+
+  const matchesSearch = task.title
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase());
+
+  return matchesFilter && matchesSearch;
+});
 
   return (
     <div className="app">
@@ -66,7 +74,14 @@ const [tasks, setTasks] = useState(() => {
         filter={filter}
         onFilterChange={setFilter}
       />
-
+      <input
+       className="search-box"
+       type="text"
+       placeholder="Search tasks..."
+       value={searchTerm}
+       onChange={(event) => setSearchTerm(event.target.value)}
+      />     
+       
       <TaskList
         tasks={visibleTasks}
         onToggle={toggleTask}
