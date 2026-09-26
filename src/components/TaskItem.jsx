@@ -38,13 +38,19 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
   return (
     <div className={`task-item ${task.completed ? "completed" : ""}`}>
       {isEditing ? (
-        <div className="edit-area">
-          <input
-            value={editTitle}
-            onChange={(event) => setEditTitle(event.target.value)}
-          />
-          <button onClick={handleSave}>Save</button>
-        </div>
+     <div className="edit-area">
+       <input
+         value={editTitle}
+         onChange={(event) => setEditTitle(event.target.value)}
+       />
+       <button onClick={handleSave}>Save</button>
+       <button onClick={() => {
+         setEditTitle(task.title);
+         setIsEditing(false);
+       }}>
+         Cancel
+       </button>
+     </div>
       ) : (
         <>
           <div className="task-info">
