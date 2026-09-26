@@ -239,3 +239,18 @@ form button {
   border-radius: 8px;
   font-size: 15px;
 }
+
+.sort-button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sort-button:hover {
+  background: #f3f3f3;
+}

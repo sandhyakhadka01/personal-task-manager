@@ -13,6 +13,7 @@ const [tasks, setTasks] = useState(() => {
 });
   const [filter, setFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortByPriority, setSortByPriority] = useState(false);
 
   useEffect(() => {
   localStorage.setItem(
@@ -51,18 +52,33 @@ const [tasks, setTasks] = useState(() => {
     );
   }
 
-const visibleTasks = tasks.filter((task) => {
-  const matchesFilter =
-    filter === "All" ||
-    (filter === "Active" && !task.completed) ||
-    (filter === "Completed" && task.completed);
+const visibleTasks = tasks
+  .filter((task) => {
+    const matchesFilter =
+      filter === "All" ||
+      (filter === "Active" && !task.completed) ||
+      (filter === "Completed" && task.completed);
 
-  const matchesSearch = task.title
-    .toLowerCase()
-    .includes(searchTerm.toLowerCase());
+    const matchesSearch = task.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
 
-  return matchesFilter && matchesSearch;
-});
+    return matchesFilter && matchesSearch;
+  })
+  .sort((a, b) => {
+    if (!sortByPriority) return 0;
+
+    const priorityOrder = {
+      High: 1,
+      Medium: 2,
+      Low: 3,
+    };
+
+    return (
+      (priorityOrder[a.priority] || 2) -
+      (priorityOrder[b.priority] || 2)
+    );
+  });
 
   return (
     <div className="app">
@@ -80,8 +96,14 @@ const visibleTasks = tasks.filter((task) => {
        placeholder="Search tasks..."
        value={searchTerm}
        onChange={(event) => setSearchTerm(event.target.value)}
-      />     
-       
+      />    
+      <button
+       className="sort-button"
+       onClick={() => setSortByPriority(!sortByPriority)}
+       >
+       {sortByPriority ? "Normal Order" : "Sort by Priority"}
+      </button> 
+
       <TaskList
         tasks={visibleTasks}
         onToggle={toggleTask}
