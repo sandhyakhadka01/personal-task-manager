@@ -43,7 +43,6 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
             value={editTitle}
             onChange={(event) => setEditTitle(event.target.value)}
           />
-
           <button onClick={handleSave}>Save</button>
         </div>
       ) : (
@@ -61,18 +60,24 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
               <div className="task-details">
                 <span>{task.category}</span>
                 <span>•</span>
+
                 <span>
                   {getDayName(task.date)}, {formatDate(task.date)}
                 </span>
+
                 <span>•</span>
                 <span>{task.timeOfDay}</span>
+
+                <span>•</span>
+<span className={`priority-${(task.priority || "Medium").toLowerCase()}`}>
+  Priority: {task.priority || "Medium"}
+</span>
               </div>
             </div>
           </div>
 
           <div className="task-actions">
             <button onClick={() => setIsEditing(true)}>Edit</button>
-
             <button onClick={() => onDelete(task.id)}>Delete</button>
           </div>
         </>

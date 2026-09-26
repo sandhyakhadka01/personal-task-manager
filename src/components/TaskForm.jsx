@@ -5,6 +5,7 @@ function TaskForm({ onAddTask }) {
   const [category, setCategory] = useState("College");
   const [date, setDate] = useState("");
   const [timeOfDay, setTimeOfDay] = useState("Morning");
+  const [priority, setPriority] = useState("Medium");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,6 +18,7 @@ function TaskForm({ onAddTask }) {
       category,
       date,
       timeOfDay,
+      priority,
       completed: false,
     };
 
@@ -25,6 +27,7 @@ function TaskForm({ onAddTask }) {
     setTitle("");
     setDate("");
     setTimeOfDay("Morning");
+    setPriority("Medium");
   }
 
   return (
@@ -59,6 +62,15 @@ function TaskForm({ onAddTask }) {
         <option>Morning</option>
         <option>Evening</option>
         <option>Night</option>
+      </select>
+
+      <select
+        value={priority}
+        onChange={(event) => setPriority(event.target.value)}
+      >
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
       </select>
 
       <button type="submit">Add Task</button>

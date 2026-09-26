@@ -217,3 +217,15 @@ form button {
   font-size: 13px;
   margin-top: 5px;
 }
+
+.priority-high {
+  font-weight: 600;
+}
+
+.priority-medium {
+  font-weight: 600;
+}
+
+.priority-low {
+  font-weight: 600;
+}
