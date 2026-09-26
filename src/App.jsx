@@ -42,6 +42,12 @@ const [tasks, setTasks] = useState(() => {
     );
   }
 
+  function clearCompletedTasks() {
+    setTasks((currentTasks) =>
+     currentTasks.filter((task) => !task.completed)
+    );
+  }
+
   function editTask(id, newTitle) {
     setTasks((currentTasks) =>
       currentTasks.map((task) =>
@@ -103,6 +109,13 @@ const visibleTasks = tasks
        >
        {sortByPriority ? "Normal Order" : "Sort by Priority"}
       </button> 
+
+      <button
+        className="clear-button"
+        onClick={clearCompletedTasks}
+      >
+        Clear Completed
+      </button>
 
       <TaskList
         tasks={visibleTasks}
