@@ -1,6 +1,12 @@
-/* =========================
-   Main App
-========================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
 
 .app {
   width: 100%;
@@ -9,7 +15,6 @@
   margin: 0 auto;
   padding: 50px 40px;
 }
-
 /* =========================
    Header
 ========================= */
@@ -142,7 +147,7 @@ form button {
   padding: 18px 20px;
   border: 1px solid #e5e5e5;
   border-radius: 14px;
-  background: #fff;
+  background: #fff7fa;
 }
 
 .progress-header {
@@ -243,7 +248,8 @@ form button {
   margin-bottom: 14px;
   border: 1px solid #e5e5e5;
   border-radius: 14px;
-  background: white;
+  background: #fffafc;
+  box-shadow: 0 4px 15px rgba(80, 40, 60, 0.10);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
