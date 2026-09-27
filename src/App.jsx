@@ -7,20 +7,21 @@ import FilterBar from "./components/FilterBar";
 import TaskList from "./components/TaskList";
 
 function App() {
-const [tasks, setTasks] = useState(() => {
-  const savedTasks = localStorage.getItem("personalTaskManagerTasks");
-  return savedTasks ? JSON.parse(savedTasks) : [];
-});
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("personalTaskManagerTasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
   const [filter, setFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortByPriority, setSortByPriority] = useState(false);
 
   useEffect(() => {
-  localStorage.setItem(
-    "personalTaskManagerTasks",
-    JSON.stringify(tasks)
-  );
-}, [tasks]);
+    localStorage.setItem(
+      "personalTaskManagerTasks",
+      JSON.stringify(tasks)
+    );
+  }, [tasks]);
 
   function addTask(newTask) {
     setTasks((currentTasks) => [...currentTasks, newTask]);
@@ -44,7 +45,7 @@ const [tasks, setTasks] = useState(() => {
 
   function clearCompletedTasks() {
     setTasks((currentTasks) =>
-     currentTasks.filter((task) => !task.completed)
+      currentTasks.filter((task) => !task.completed)
     );
   }
 
@@ -62,33 +63,38 @@ const [tasks, setTasks] = useState(() => {
   const completedTasks = tasks.filter((task) => task.completed).length;
   const pendingTasks = totalTasks - completedTasks;
 
+  const progress =
+    totalTasks === 0
+      ? 0
+      : Math.round((completedTasks / totalTasks) * 100);
+
   const visibleTasks = tasks
-  .filter((task) => {
-    const matchesFilter =
-      filter === "All" ||
-      (filter === "Active" && !task.completed) ||
-      (filter === "Completed" && task.completed);
+    .filter((task) => {
+      const matchesFilter =
+        filter === "All" ||
+        (filter === "Active" && !task.completed) ||
+        (filter === "Completed" && task.completed);
 
-    const matchesSearch = task.title
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
+      const matchesSearch = task.title
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
 
-    return matchesFilter && matchesSearch;
-  })
-  .sort((a, b) => {
-    if (!sortByPriority) return 0;
+      return matchesFilter && matchesSearch;
+    })
+    .sort((a, b) => {
+      if (!sortByPriority) return 0;
 
-    const priorityOrder = {
-      High: 1,
-      Medium: 2,
-      Low: 3,
-    };
+      const priorityOrder = {
+        High: 1,
+        Medium: 2,
+        Low: 3,
+      };
 
-    return (
-      (priorityOrder[a.priority] || 2) -
-      (priorityOrder[b.priority] || 2)
-    );
-  });
+      return (
+        (priorityOrder[a.priority] || 2) -
+        (priorityOrder[b.priority] || 2)
+      );
+    });
 
   return (
     <div className="app">
@@ -106,20 +112,35 @@ const [tasks, setTasks] = useState(() => {
         <span>Completed: {completedTasks}</span>
         <span>Pending: {pendingTasks}</span>
       </div>
-      
+
+      <div className="progress-section">
+        <div className="progress-header">
+          <span>Today's Progress</span>
+          <strong>{progress}%</strong>
+        </div>
+
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+      </div>
+
       <input
-       className="search-box"
-       type="text"
-       placeholder="Search tasks..."
-       value={searchTerm}
-       onChange={(event) => setSearchTerm(event.target.value)}
-      />    
+        className="search-box"
+        type="text"
+        placeholder="Search tasks..."
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
+      />
+
       <button
-       className="sort-button"
-       onClick={() => setSortByPriority(!sortByPriority)}
-       >
-       {sortByPriority ? "Normal Order" : "Sort by Priority"}
-      </button> 
+        className="sort-button"
+        onClick={() => setSortByPriority(!sortByPriority)}
+      >
+        {sortByPriority ? "Normal Order" : "Sort by Priority"}
+      </button>
 
       <button
         className="clear-button"
