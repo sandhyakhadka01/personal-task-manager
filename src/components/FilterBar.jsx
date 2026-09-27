@@ -1,15 +1,24 @@
 function FilterBar({ filter, onFilterChange }) {
   return (
     <div className="filter-bar">
-      <button onClick={() => onFilterChange("All")}>
+      <button
+        className={filter === "All" ? "active" : ""}
+        onClick={() => onFilterChange("All")}
+      >
         All
       </button>
 
-      <button onClick={() => onFilterChange("Active")}>
+      <button
+        className={filter === "Active" ? "active" : ""}
+        onClick={() => onFilterChange("Active")}
+      >
         Active
       </button>
 
-      <button onClick={() => onFilterChange("Completed")}>
+      <button
+        className={filter === "Completed" ? "active" : ""}
+        onClick={() => onFilterChange("Completed")}
+      >
         Completed
       </button>
     </div>
