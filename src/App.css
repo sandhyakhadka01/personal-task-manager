@@ -341,3 +341,47 @@ form select:focus {
   object-fit: contain;
   z-index: 1000;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 80px;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.focus-card {
+  background: #f8f8f8;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  min-width: 180px;
+}
+
+.focus-card h3 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.focus-card p {
+  margin: 5px 0;
+  color: #666;
+}
