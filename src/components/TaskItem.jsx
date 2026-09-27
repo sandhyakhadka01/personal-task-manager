@@ -35,22 +35,28 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
     });
   }
 
+  const priority = task.priority || "Medium";
+
   return (
     <div className={`task-item ${task.completed ? "completed" : ""}`}>
       {isEditing ? (
-     <div className="edit-area">
-       <input
-         value={editTitle}
-         onChange={(event) => setEditTitle(event.target.value)}
-       />
-       <button onClick={handleSave}>Save</button>
-       <button onClick={() => {
-         setEditTitle(task.title);
-         setIsEditing(false);
-       }}>
-         Cancel
-       </button>
-     </div>
+        <div className="edit-area">
+          <input
+            value={editTitle}
+            onChange={(event) => setEditTitle(event.target.value)}
+          />
+
+          <button onClick={handleSave}>Save</button>
+
+          <button
+            onClick={() => {
+              setEditTitle(task.title);
+              setIsEditing(false);
+            }}
+          >
+            Cancel
+          </button>
+        </div>
       ) : (
         <>
           <div className="task-info">
@@ -60,8 +66,16 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
               onChange={() => onToggle(task.id)}
             />
 
-            <div>
-              <h3>{task.title}</h3>
+            <div className="task-content">
+              <div className="task-title-row">
+                <h3>{task.title}</h3>
+
+                <span
+                  className={`priority-badge priority-${priority.toLowerCase()}`}
+                >
+                  {priority}
+                </span>
+              </div>
 
               <div className="task-details">
                 <span>{task.category}</span>
@@ -72,18 +86,15 @@ function TaskItem({ task, onToggle, onDelete, onEdit }) {
                 </span>
 
                 <span>•</span>
-                <span>{task.timeOfDay}</span>
 
-                <span>•</span>
-<span className={`priority-${(task.priority || "Medium").toLowerCase()}`}>
-  Priority: {task.priority || "Medium"}
-</span>
+                <span>{task.timeOfDay}</span>
               </div>
             </div>
           </div>
 
           <div className="task-actions">
             <button onClick={() => setIsEditing(true)}>Edit</button>
+
             <button onClick={() => onDelete(task.id)}>Delete</button>
           </div>
         </>
