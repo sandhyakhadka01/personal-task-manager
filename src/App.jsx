@@ -150,10 +150,11 @@ function App() {
       </button>
 
       <TaskList
-        tasks={visibleTasks}
-        onToggle={toggleTask}
-        onDelete={deleteTask}
-        onEdit={editTask}
+       tasks={visibleTasks}
+       onToggle={toggleTask}
+       onDelete={deleteTask}
+       onEdit={editTask}
+       hasTasks={tasks.length > 0}
       />
     </div>
   );

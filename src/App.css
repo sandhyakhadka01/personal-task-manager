@@ -577,3 +577,28 @@ form select:focus {
   border-radius: 10px;
   transition: width 0.3s ease;
 }
+
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: 20px;
+  border: 1px dashed #d8d8d8;
+  border-radius: 16px;
+  background: #fafafa;
+}
+
+.empty-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
