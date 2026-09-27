@@ -547,3 +547,261 @@ form select:focus {
     font-size: 30px;
   }
 }
+
+/* Sidebar */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background: #fce4ec;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+  color: #333;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-menu button {
+  border: none;
+  background: transparent;
+  padding: 14px 16px;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+}
+
+.sidebar-menu button:hover {
+  background: #f8c8d8;
+}
+
+.sidebar-menu button.sidebar-active {
+  background: #f5b6ce;
+  font-weight: bold;
+}
+
+/* Main content */
+
+.main-content {
+  margin-left: 220px;
+  padding: 30px 50px;
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 220px;
+  height: 100vh;
+
+  background: #fce4ec;
+
+  padding: 30px 20px;
+  box-sizing: border-box;
+
+  z-index: 1000;
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-menu button {
+  width: 100%;
+
+  border: none;
+  background: transparent;
+
+  padding: 13px 15px;
+
+  border-radius: 12px;
+
+  text-align: left;
+
+  font-size: 16px;
+
+  color: #333;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.sidebar-menu button:hover {
+  background: #f8c8d8;
+}
+
+.sidebar-menu button.sidebar-active {
+  background: #f5b6ce;
+  font-weight: 600;
+}
+
+
+/* ========================================
+   CATEGORIES
+======================================== */
+
+.sidebar-categories {
+  margin-top: 35px;
+
+  border-top: 1px solid #e7b8c8;
+
+  padding-top: 20px;
+}
+
+.sidebar-categories h3 {
+  margin: 0 0 15px 5px;
+
+  font-size: 16px;
+
+  color: #555;
+}
+
+.sidebar-categories p {
+  margin: 13px 5px;
+
+  font-size: 15px;
+
+  color: #555;
+}
+
+
+/* ========================================
+   SIDEBAR MESSAGE
+======================================== */
+
+.sidebar-message {
+  position: absolute;
+
+  bottom: 35px;
+  left: 20px;
+  right: 20px;
+
+  text-align: center;
+
+  color: #d75c8b;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   MAIN CONTENT
+   Keeps your existing content size
+======================================== */
+
+.main-content {
+  margin-left: 220px;
+
+  width: calc(100% - 220px);
+
+  box-sizing: border-box;
+
+  padding: 0 30px;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+  .sidebar {
+    width: 180px;
+  }
+
+  .main-content {
+    margin-left: 180px;
+
+    width: calc(100% - 180px);
+
+    padding: 0 20px;
+  }
+
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 35px;
+  padding-top: 10px;
+}
+
+.sidebar-logo-image {
+  width: 120px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #e98db3;
+  color: white;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  z-index: 9999;
+}
+
+.back-to-top:hover {
+  background: #d96f9c;
+  transform: translateY(-3px);
+}

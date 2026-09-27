@@ -59,9 +59,9 @@ function TaskForm({ onAddTask }) {
         value={timeOfDay}
         onChange={(event) => setTimeOfDay(event.target.value)}
       >
-        <option>Morning</option>
-        <option>Evening</option>
-        <option>Night</option>
+        <option>🌅Morning</option>
+        <option>🌇Evening</option>
+        <option>🌙Night</option>
       </select>
 
       <select

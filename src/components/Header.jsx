@@ -1,4 +1,3 @@
-import logo from "../assets/logo.png";
 
 function Header() {
   const today = new Date().toLocaleDateString("en-GB", {
@@ -10,11 +9,12 @@ function Header() {
   return (
     <header className="header">
       <div className="header-brand">
-        <img src={logo} alt="Personal Task Manager logo" className="logo" />
 
         <div className="header-title">
           <h1>Personal Task Manager</h1>
-          <p>Manage your daily tasks easily</p>
+          <p> 
+
+🌸Manage your daily tasks easily</p>
         </div>
       </div>
 

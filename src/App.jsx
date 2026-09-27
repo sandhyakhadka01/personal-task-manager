@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import TaskForm from "./components/TaskForm";
 import FilterBar from "./components/FilterBar";
 import TaskList from "./components/TaskList";
@@ -117,7 +118,15 @@ function App() {
     });
 
   return (
-    <div className="app">
+  <div className="app">
+
+    <Sidebar
+      filter={filter}
+      onFilterChange={setFilter}
+    />
+
+    <main className="main-content">
+
       <Header />
 
       <TaskForm onAddTask={addTask} />
@@ -190,6 +199,7 @@ function App() {
           ↑
         </button>
       )}
+      </main>
     </div>
   );
 }
