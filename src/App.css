@@ -343,45 +343,80 @@ form select:focus {
 }
 
 .header {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
   margin-bottom: 40px;
-  flex-wrap: wrap;
 }
 
-.header-left {
+.header-brand {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 }
 
 .logo {
-  width: 80px;
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
-.header-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+.header-title h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.1;
 }
 
-.focus-card {
-  background: #f8f8f8;
-  padding: 15px 25px;
-  border-radius: 15px;
-  border: 1px solid #ddd;
-  text-align: center;
-  min-width: 180px;
-}
-
-.focus-card h3 {
-  margin: 5px 0;
-  font-size: 16px;
-}
-
-.focus-card p {
-  margin: 5px 0;
+.header-title p {
+  margin: 6px 0 0;
+  font-size: 17px;
   color: #666;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.header-info span {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-brand {
+    width: 100%;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .header-title h1 {
+    font-size: 30px;
+  }
+
+  .header-info {
+    width: 100%;
+  }
+
+  .header-info span {
+    flex: 1;
+    text-align: center;
+  }
 }
