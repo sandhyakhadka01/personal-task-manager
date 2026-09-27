@@ -147,6 +147,8 @@ function App() {
         </div>
       </div>
 
+     <div className="task-controls">
+
       <input
         className="search-box"
         type="text"
@@ -168,6 +170,8 @@ function App() {
       >
         Clear Completed
       </button>
+
+      </div>
 
       <TaskList
         tasks={visibleTasks}

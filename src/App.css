@@ -1,3 +1,7 @@
+/* =========================
+   Main App
+========================= */
+
 .app {
   width: 100%;
   max-width: 1100px;
@@ -6,341 +10,9 @@
   padding: 50px 40px;
 }
 
-.header {
-  position: relative;
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
-
-.header-text {
-  text-align: left;
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.header p {
-  margin-top: 8px;
-  font-size: 17px;
-}
-
-/* Add task form */
-@media (max-width: 700px) {
-  .app {
-    padding: 30px 15px;
-  }
-
-  .header h1 {
-    font-size: 30px;
-  }
-
-  form {
-    grid-template-columns: 1fr;
-  }
-
-  form input,
-  form select,
-  form button {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .task-item {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .task-actions {
-    margin-left: 28px;
-  }
-
-  .task-details {
-    align-items: flex-start;
-  }
-
-  .task-stats {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-}
-
-form input {
-  flex: 1;
-  padding: 13px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-form select {
-  padding: 13px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-form button {
-  padding: 13px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* Filter buttons */
-.filter-bar {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.filter-bar button {
-  padding: 9px 18px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  background: white;
-  cursor: pointer;
-}
-
-/* Statistics */
-.task-stats {
-  display: flex;
-  justify-content: space-around;
-  margin: 25px 0;
-  padding: 18px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-}
-
-/* Task list */
-.task-list {
-  width: 100%;
-  margin-top: 25px;
-}
-
-/* Empty state */
-.empty-state {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.empty-state h3 {
-  margin-bottom: 8px;
-}
-
-.empty-state p {
-  margin: 0;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .app {
-    padding: 30px 15px;
-  }
-
-  .header h1 {
-    font-size: 30px;
-  }
-
-  form {
-    flex-direction: column;
-  }
-
-  form input,
-  form select,
-  form button {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .task-stats {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-}
-
-.task-item {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 20px;
-  margin-bottom: 12px;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  background: white;
-}
-
-.task-info {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex: 1;
-}
-
-.task-info h3 {
-  margin: 0 0 5px;
-  font-size: 16px;
-}
-
-.task-info span {
-  font-size: 13px;
-}
-
-.task-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.task-actions button,
-.edit-area button {
-  padding: 8px 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: white;
-  cursor: pointer;
-}
-
-.task-actions button:hover,
-.edit-area button:hover {
-  background: #f3f3f3;
-}
-
-.task-details {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-.priority-high {
-  font-weight: 600;
-}
-
-.priority-medium {
-  font-weight: 600;
-}
-
-.priority-low {
-  font-weight: 600;
-}
-
-.search-box {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 13px 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-.sort-button {
-  display: block;
-  margin: 0 auto 20px;
-  padding: 10px 18px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: white;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.sort-button:hover {
-  background: #f3f3f3;
-}
-
-.clear-button {
-  margin-left: 10px;
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.task-stats {
-  display: flex;
-  gap: 15px;
-  margin: 15px 0;
-  font-size: 14px;
-}
-
-.task-stats span {
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: #f1f1f1;
-}
-
-.edit-area button {
-  margin-left: 8px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Final UI polish */
-
-.search-box:focus,
-form input:focus,
-form select:focus {
-  outline: none;
-  border-color: #888;
-}
-
-.task-item {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.task-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.task-actions button:hover,
-.edit-area button:hover,
-.sort-button:hover,
-.clear-button:hover {
-  transform: translateY(-1px);
-}
-
-.clear-button:hover {
-  background: #f3f3f3;
-}
-
-/* Logo - top left corner */
-.header {
-  position: relative;
-}
-
-.logo {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  z-index: 1000;
-}
+/* =========================
+   Header
+========================= */
 
 .header {
   width: 100%;
@@ -358,16 +30,20 @@ form select:focus {
 }
 
 .logo {
-  width: 105px;
-  height: 105px;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
-  flex-shrink: 0;
+  z-index: 1000;
 }
 
 .header-title h1 {
   margin: 0;
   font-size: 40px;
   line-height: 1.1;
+  font-weight: 700;
 }
 
 .header-title p {
@@ -392,36 +68,173 @@ form select:focus {
   color: #555;
 }
 
-@media (max-width: 700px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* =========================
+   Add Task Form
+========================= */
 
-  .header-brand {
-    width: 100%;
-  }
-
-  .logo {
-    width: 80px;
-    height: 80px;
-  }
-
-  .header-title h1 {
-    font-size: 30px;
-  }
-
-  .header-info {
-    width: 100%;
-  }
-
-  .header-info span {
-    flex: 1;
-    text-align: center;
-  }
+form input {
+  flex: 1;
+  padding: 13px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
 }
 
+form select {
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* =========================
+   Filter Buttons
+========================= */
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-bar button {
+  padding: 9px 18px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+}
+
+/* =========================
+   Statistics
+========================= */
+
+.task-stats {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.task-stats span {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f1f1f1;
+}
+
+/* =========================
+   Progress
+========================= */
+
+.progress-section {
+  margin: 20px 0;
+  padding: 18px 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #555;
+}
+
+.progress-header strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #eeeeee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #333;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+/* =========================
+   Search + Sort + Clear
+========================= */
+
+.task-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.task-controls .search-box {
+  flex: 1;
+  width: auto;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.task-controls .sort-button,
+.task-controls .clear-button {
+  width: 160px;
+  height: 42px;
+  padding: 0 14px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.task-controls .sort-button:hover,
+.task-controls .clear-button:hover {
+  background: #f3f3f3;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Task List
+========================= */
+
+.task-list {
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* =========================
+   Task Item
+========================= */
+
 .task-item {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -431,7 +244,7 @@ form select:focus {
   border: 1px solid #e5e5e5;
   border-radius: 14px;
   background: white;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .task-item:hover {
@@ -478,6 +291,10 @@ form select:focus {
   flex-wrap: wrap;
 }
 
+/* =========================
+   Priority
+========================= */
+
 .priority-badge {
   padding: 4px 10px;
   border-radius: 20px;
@@ -500,12 +317,17 @@ form select:focus {
   color: #2e7d32;
 }
 
+/* =========================
+   Task Actions
+========================= */
+
 .task-actions {
   display: flex;
   gap: 8px;
 }
 
-.task-actions button {
+.task-actions button,
+.edit-area button {
   padding: 8px 13px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -514,9 +336,15 @@ form select:focus {
   transition: 0.2s;
 }
 
-.task-actions button:hover {
+.task-actions button:hover,
+.edit-area button:hover {
   background: #f5f5f5;
+  transform: translateY(-1px);
 }
+
+/* =========================
+   Completed Task
+========================= */
 
 .task-item.completed {
   opacity: 0.65;
@@ -526,57 +354,17 @@ form select:focus {
   text-decoration: line-through;
 }
 
-@media (max-width: 700px) {
-  .task-item {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+/* =========================
+   Edit Area
+========================= */
 
-  .task-actions {
-    width: 100%;
-  }
-
-  .task-actions button {
-    flex: 1;
-  }
+.edit-area button {
+  margin-left: 8px;
 }
 
-.progress-section {
-  margin: 20px 0;
-  padding: 18px 20px;
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
-  background: #fff;
-}
-
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 15px;
-  color: #555;
-}
-
-.progress-header strong {
-  font-size: 16px;
-  color: #333;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #eeeeee;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: #333;
-  border-radius: 10px;
-  transition: width 0.3s ease;
-}
+/* =========================
+   Empty State
+========================= */
 
 .empty-state {
   text-align: center;
@@ -603,6 +391,21 @@ form select:focus {
   font-size: 14px;
 }
 
+/* =========================
+   Input Focus
+========================= */
+
+.search-box:focus,
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+/* =========================
+   Back To Top
+========================= */
+
 .back-to-top {
   position: fixed;
   right: 25px;
@@ -622,4 +425,101 @@ form select:focus {
 
 .back-to-top:hover {
   transform: translateY(-3px);
+}
+
+/* =========================
+   Tablet / Mobile
+========================= */
+
+@media (max-width: 700px) {
+  .app {
+    padding: 30px 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-brand {
+    width: 100%;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .header-title h1 {
+    font-size: 30px;
+  }
+
+  .header-info {
+    width: 100%;
+  }
+
+  .header-info span {
+    flex: 1;
+    text-align: center;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  form input,
+  form select,
+  form button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .task-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-controls .search-box,
+  .task-controls .sort-button,
+  .task-controls .clear-button {
+    width: 100%;
+  }
+
+  .task-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-actions {
+    width: 100%;
+  }
+
+  .task-actions button {
+    flex: 1;
+  }
+
+  .task-stats {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .task-details {
+    align-items: flex-start;
+  }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 600px) {
+  .app {
+    padding: 30px 15px;
+  }
+
+  .header-title h1 {
+    font-size: 30px;
+  }
 }
