@@ -15,6 +15,7 @@ function App() {
   const [filter, setFilter] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortByPriority, setSortByPriority] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     localStorage.setItem(
@@ -22,6 +23,18 @@ function App() {
       JSON.stringify(tasks)
     );
   }, [tasks]);
+
+  useEffect(() => {
+    function handleScroll() {
+      setShowBackToTop(window.scrollY > 400);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   function addTask(newTask) {
     setTasks((currentTasks) => [...currentTasks, newTask]);
@@ -57,6 +70,13 @@ function App() {
           : task
       )
     );
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   const totalTasks = tasks.length;
@@ -150,12 +170,22 @@ function App() {
       </button>
 
       <TaskList
-       tasks={visibleTasks}
-       onToggle={toggleTask}
-       onDelete={deleteTask}
-       onEdit={editTask}
-       hasTasks={tasks.length > 0}
+        tasks={visibleTasks}
+        onToggle={toggleTask}
+        onDelete={deleteTask}
+        onEdit={editTask}
+        hasTasks={tasks.length > 0}
       />
+
+      {showBackToTop && (
+        <button
+          className="back-to-top"
+          onClick={scrollToTop}
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
+      )}
     </div>
   );
 }
